@@ -1,7 +1,7 @@
 # React Components Created
  A repository to Create and test Modular Components that I can use for all of my projects.
 
-## Nav Component
+## Navigation Component
 ### Required Dependencies
  * React Router Dom  
  * Node SASS
@@ -92,6 +92,11 @@ Low-level interface for all nav components.
 [Eduardo Jasso (ejasso112)](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 ## Versioning
-* **Nav 0.0.1 - Basic Functioning Nav**
-  * Made the Nav Component.
+* **Navigation 0.0.1 - Basic Functioning Nav**
+  * Made the Navigation Component.
   * Created the modules `NavGroup`, `NavLink`, `NavButton`, `NavSearchField`.
+  * Can only redirect to different page using `to` parameter.
+  * `type` parameter sets a default svg icon to a button. Supports `search`, `advSearch`, and `profile`.
+* **Navigation 0.0.2 - NavButton 'type:search' and NavSearchField Functionality**
+  * `NavSearchField` stores value in state onChange.
+  * `type: search` `NavButton` now passes `NavSearchField` value onClick (Redirect) through the pathname.
