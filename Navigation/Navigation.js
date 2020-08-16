@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
+
+import './Navigation.scss'
+
 class Navigation extends Component {
     constructor() {
         super()
@@ -20,7 +23,7 @@ class Navigation extends Component {
             </Fragment>
         )
         return(
-            <nav className={this.props.className}>
+            <nav className={`reactNavigation ${this.props.className}`}>
                 {navmap}
             </nav>
         )
@@ -35,24 +38,50 @@ const NavGroup = (props) => {
     )
 
     return(
-        <div className={props.className}>
+        <div className={`reactNavigation__group ${props.className}`}>
             {navmap}
         </div>
     )
 }
 
 const NavLogo = (props) => {
+    const LogoSvg = props.content.svg
+    const logoMap = Object.keys(props.content).map((segment, i) =>
+        <Fragment key={i}> {
+            segment === 'text' ? 
+            <h1 className={`reactNavigation__logo__text ${props.className}__text`}>{props.content.text}</h1>
+            : segment === 'srcImg' ?
+            <img className={`reactNavigation__logo__img ${props.className}__img`} src={props.content.srcImg} alt={props.content.alt} />
+            : segment === 'svg' &&
+            <LogoSvg className={`reactNavigation__logo__svg ${props.className}__svg`} />
+        }
+        </Fragment>
+    )
+
     return(
-        <Link className={props.className} to={props.to}>
-            <h1 className={`${props.className}__text`}>{props.children}</h1>
+        <Link className={`reactNavigation__logo ${props.className}`} to={props.to}>
+            {logoMap}
         </Link>
     )
 }
 
 const NavLink = (props) => {
+    const LinkSvg = props.content.svg
+    const linkMap = Object.keys(props.content).map((segment, i) =>
+        <Fragment key={i}> {
+            segment === 'text' ? 
+            <h2 className={`reactNavigation__link__text ${props.className}__text`}>{props.content.text}</h2>
+            : segment === 'srcImg' ?
+            <img className={`reactNavigation__link__img ${props.className}__img`} src={props.content.srcImg} alt={props.content.alt} />
+            : segment === 'svg' &&
+            <LinkSvg className={`reactNavigation__link__svg ${props.className}__svg`} />
+        }
+        </Fragment>
+    )
+
     return(
-        <Link className={props.className} to={props.to}>
-            <h2 className={`${props.className}__text`}>{props.children}</h2>
+        <Link className={`reactNavigation__logo ${props.className}`} to={props.to}>
+            {linkMap}
         </Link>
     )
 }

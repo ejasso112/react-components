@@ -23,9 +23,22 @@ Low-level interface for all nav components.
  The class name to give the element.
 
 ### \<NavLogo>
- Only supports text as logo.
+ Allows the use of text, images, and svgs as a logo.
  #### className: string
  The class name to give the element.
+ #### contents: object
+ ```
+ import LogoImg from '.logo.png'
+ import {ReactComponent as LogoSvg} from './logo.svg'
+
+ const contentsObj = {
+    svg: LogoSvg,
+    srcImg: LogoImg,
+    alt: string,
+    text: 'Logo'
+}
+```
+Multiple properties can be used, and are orderd from first to last.
  #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
  #### to: object
@@ -36,9 +49,22 @@ Low-level interface for all nav components.
  * state: State to persist to the location.
 
 ### \<NavLink>
- Text name of the links.
+ Allows the use of text, images, and svgs as a link.
  #### className: string
  The class name to give the element.
+ #### contents: object
+ ```
+ import LinkImg from '.link.png'
+ import {ReactComponent as LinkSvg} from './link.svg'
+
+ const contentsObj = {
+    svg: LinkSvg,
+    srcImg: LinkImg,
+    alt: string,
+    text: 'Link'
+}
+```
+Multiple properties can be used, and are orderd from first to last.
  #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
  #### to: object
@@ -88,6 +114,14 @@ Low-level interface for all nav components.
 </Navigation>
 ```
 
+#### To Dos
+ * Add svg support to the `NavLogo` module.
+ * Add Functionality to the `NavButton` `type: advSearch` module.
+ * Add Functionality to the `NavButton` `type: profile` module. (drop Down menu)
+ * Add an On keyPress Event to the `NavSearchField` module to redirect.
+ * Make the component responsive.
+ * Add a basic preset style to the `Navigation` Component.
+
 ## Contributions
 [Eduardo Jasso (ejasso112)](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
@@ -100,3 +134,7 @@ Low-level interface for all nav components.
 * **Navigation 0.0.2 - NavButton 'type:search' and NavSearchField Functionality**
   * `NavSearchField` stores value in state onChange.
   * `type: search` `NavButton` now passes `NavSearchField` value onClick (Redirect) through the pathname.
+* **Navigation 0.0.3 - NavLogo and NavLinks Functionality Update**
+  * `NavLogo` uses new property `contents: object` with four properties `text: string`, `srcImg: componet`, `alt: string` and `svg: component` to display different types of logos. Supports multiple at a time.
+  * Like `NavLogo`, `NavLink` also uses the new property `contents: object` with four properties `text: string`, `srcImg: componet`, `alt: string`, and `svg: component` to display different types of links. Supports multiple at a time.
+  * Added default styling to `Navigation`, `NavGroup`, `NavLogo`, and `NavLink`.
