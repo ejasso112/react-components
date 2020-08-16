@@ -12,23 +12,23 @@
  npm install node-sass
  ```  
 
-### \<Nav>
+### \<Navigation>
 Low-level interface for all nav components.
-#### &emsp;className: string
+#### className: string
  The class name to give the element.
 
 ### \<NavGroup>
  A group of modules that you want to clump together.
- #### &emsp;className: string
+ #### className: string
  The class name to give the element.
 
 ### \<NavLogo>
  Only supports text as logo.
- #### &emsp;className: string
+ #### className: string
  The class name to give the element.
- #### &emsp;to: string
+ #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
- #### &emsp;to: object
+ #### to: object
  An object that can have any of the following properties:
  * pathname: A string representing the path to link to.
  * search: A string representation of query parameters.
@@ -37,11 +37,11 @@ Low-level interface for all nav components.
 
 ### \<NavLink>
  Text name of the links.
- #### &emsp;className: string
+ #### className: string
  The class name to give the element.
- #### &emsp;to: string
+ #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
- #### &emsp;to: object
+ #### to: object
  An object that can have any of the following properties:
  * pathname: A string representing the path to link to.
  * search: A string representation of query parameters.
@@ -50,13 +50,13 @@ Low-level interface for all nav components.
 
 ### \<NavButton>
  Use text to disply text.
- #### &emsp;className: string
+ #### className: string
  The class name to give the element.
- #### &emsp;type: string
+ #### type: string
  Optional. Supported types are `search`, `advSearch`, and `profile`. Use to display a preset svg for the button.
- #### &emsp;to: string
+ #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
- #### &emsp;to: object
+ #### to: object
  An object that can have any of the following properties:
  * pathname: A string representing the path to link to.
  * search: A string representation of query parameters.
@@ -64,12 +64,12 @@ Low-level interface for all nav components.
  * state: State to persist to the location.
 
 ### \<NavSearchField>
- #### &emsp;className: string
+ #### className: string
  The class name to give the element.
 
 #### Example
 ```
-<Nav className='homeNav'>
+<Navigation className='homeNav'>
   <NavGroup className='navbar'>
     <NavLogo className='logo' to='/'>AT</NavLogo>
     <NavLink className='link' to='/anime'>Anime</NavLink> 
@@ -85,7 +85,7 @@ Low-level interface for all nav components.
     <NavButton className='signup' to='/signup'>Sign Up</NavButton>
     <NavButton className='profile' type="profile" to='/profile' />
   </NavGroup>
-</Nav>
+</Navigation>
 ```
 
 ## Contributions
