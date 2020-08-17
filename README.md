@@ -27,18 +27,11 @@ Low-level interface for all nav components.
  #### className: string
  The class name to give the element.
  #### contents: object
- ```
- import LogoImg from '.logo.png'
- import {ReactComponent as LogoSvg} from './logo.svg'
-
- const contentsObj = {
-    svg: LogoSvg,
-    srcImg: LogoImg,
-    alt: string,
-    text: 'Logo'
-}
-```
-Multiple properties can be used, and are orderd from first to last.
+ An object that can have any of the following properties: (order matters)
+ * svg: A component representing the svg.
+ * srcImg: A string representing the path of the image.
+ * alt: A string representing the alt text of the image.
+ * text: A string representing the Logo.
  #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
  #### to: object
@@ -53,18 +46,32 @@ Multiple properties can be used, and are orderd from first to last.
  #### className: string
  The class name to give the element.
  #### contents: object
- ```
- import LinkImg from '.link.png'
- import {ReactComponent as LinkSvg} from './link.svg'
+ An object that can have any of the following properties: (order matters)
+ * svg: A component representing the svg.
+ * srcImg: A string representing the path of the image.
+ * alt: A string representing the alt text of the image.
+ * text: A string representing the Logo.
+ #### to: string
+ A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
+ #### to: object
+ An object that can have any of the following properties:
+ * pathname: A string representing the path to link to.
+ * search: A string representation of query parameters.
+ * hash: A hash to put in the URL, e.g. #a-hash.
+ * state: State to persist to the location.
 
- const contentsObj = {
-    svg: LinkSvg,
-    srcImg: LinkImg,
-    alt: string,
-    text: 'Link'
-}
-```
-Multiple properties can be used, and are orderd from first to last.
+### \<NavLinkButton>
+ Allows the use of text, images, and svgs as a button link.
+ #### className: string
+ The class name to give the element.
+ #### contents: object
+ An object that can have any of the following properties: (order matters)
+ * svg: A component representing the svg.
+ * srcImg: A string representing the path of the image.
+ * alt: A string representing the alt text of the image.
+ * text: A string representing the Logo.
+ #### type: string
+ Supported types are `search`. Use to redirect based on `NavSearchField` value.
  #### to: string
  A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
  #### to: object
@@ -75,19 +82,15 @@ Multiple properties can be used, and are orderd from first to last.
  * state: State to persist to the location.
 
 ### \<NavButton>
- Use text to disply text.
+ Allows the use of text, images, and svgs as a button.
  #### className: string
  The class name to give the element.
- #### type: string
- Optional. Supported types are `search`, `advSearch`, and `profile`. Use to display a preset svg for the button.
- #### to: string
- A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
- #### to: object
- An object that can have any of the following properties:
- * pathname: A string representing the path to link to.
- * search: A string representation of query parameters.
- * hash: A hash to put in the URL, e.g. #a-hash.
- * state: State to persist to the location.
+ #### contents: object
+ An object that can have any of the following properties: (order matters)
+ * svg: A component representing the svg.
+ * srcImg: A string representing the path of the image.
+ * alt: A string representing the alt text of the image.
+ * text: A string representing the Logo.
 
 ### \<NavSearchField>
  #### className: string
@@ -115,7 +118,6 @@ Multiple properties can be used, and are orderd from first to last.
 ```
 
 #### To Dos
- * Add svg support to the `NavLogo` module.
  * Add Functionality to the `NavButton` `type: advSearch` module.
  * Add Functionality to the `NavButton` `type: profile` module. (drop Down menu)
  * Add an On keyPress Event to the `NavSearchField` module to redirect.
@@ -135,6 +137,12 @@ Multiple properties can be used, and are orderd from first to last.
   * `NavSearchField` stores value in state onChange.
   * `type: search` `NavButton` now passes `NavSearchField` value onClick (Redirect) through the pathname.
 * **Navigation 0.0.3 - NavLogo and NavLinks Functionality Update**
-  * `NavLogo` uses new property `contents: object` with four properties `text: string`, `srcImg: componet`, `alt: string` and `svg: component` to display different types of logos. Supports multiple at a time.
-  * Like `NavLogo`, `NavLink` also uses the new property `contents: object` with four properties `text: string`, `srcImg: componet`, `alt: string`, and `svg: component` to display different types of links. Supports multiple at a time.
+  * `NavLogo` uses new property `contents: object` with four properties `text: string`, `srcImg: string`, `alt: string` and `svg: component` to display different types of logos. Supports multiple at a time.
+  * Like `NavLogo`, `NavLink` also uses the new property `contents: object` with four properties `text: string`, `srcImg: string`, `alt: string`, and `svg: component` to display different types of links. Supports multiple at a time.
   * Added default styling to `Navigation`, `NavGroup`, `NavLogo`, and `NavLink`.
+* **Navigation 0.0.4 - NavButton, NavLinkButton and NavSearchField Update**
+  * Added a new module `NavLinkButton` which like a `NavLink` it redirects you through the `to:` property.
+  * `NavButton` no longer supports the `to:` property.
+  * `NavLinkButton` and `NavButton` now support the property `contents: object` with four properties `text: string`, `srcImg: string`, `alt: string`, and `svg: component` to display. Supports multiple at a time.
+  * Added default styling to `NavSearchField`, `NavLinkButton`, and `NavButton`.
+  * Removed the preset svgs that where in place.
