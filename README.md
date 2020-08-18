@@ -146,3 +146,6 @@ Low-level interface for all nav components.
   * `NavLinkButton` and `NavButton` now support the property `contents: object` with four properties `text: string`, `srcImg: string`, `alt: string`, and `svg: component` to display. Supports multiple at a time.
   * Added default styling to `NavSearchField`, `NavLinkButton`, and `NavButton`.
   * Removed the preset svgs that where in place.
+* **Navigation 0.0.5 - State Management Update**
+  * Changed from prop drilling to using React Context API.
+  * Reorganized all Component modules
