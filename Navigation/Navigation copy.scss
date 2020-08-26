@@ -1,38 +1,25 @@
 .reactNavigation {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
     &__dropdown {
+        display: flex;
+        flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: calc(100% + 4px);
         right: 0;
-        z-index: 1;
-        padding-top: 4px;
-        overflow: hidden;
-        pointer-events: none;
-
-        &__content {
-            width: 200px;
-            opacity: 0;
-            transition: transform 100ms ease-in, opacity 100ms ease-in;
-            transform: translateY(-105%);
-            display: flex;
-            flex-direction: column;
-            pointer-events: visible;
-            border-radius: 8px;
-            background: #d8d8d8;
-            cursor: default;
-
-            > * { margin: 10px 10px !important; }
-        }
-
-        &--true {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        border-radius: 8px;
+        background-color: #f0f0f0;
+        box-shadow: 0 3px 3px rgba($color: #000000, $alpha: .5);
     }
 
-    &__searchfield {
+    &__searchField {
+        width: 100%;
         border: 1.5px solid transparent;
         border-radius: 8px 0 0 8px;
-        padding: 0 12px;
+        padding: 0 12px 0 12px;
         height: 42px;
         font-size: .9em;
 
@@ -44,6 +31,7 @@
     }
 
     &__button {
+        cursor: pointer;
         display: flex;
         position: relative;
         flex-shrink: 0;
@@ -51,7 +39,6 @@
         margin: 0 2px;
         border-radius: 8px;
         background: #d8d8d8;
-        cursor: pointer;
         padding: 0 12px 0 12px;
         height: 42px;
 
@@ -75,14 +62,17 @@
             height: 18px;
         }
 
-        > *:first-child { margin-left: 0; }
-        > *:last-child { margin-right: 0; }
+        & > *:first-child {
+            margin-left: 0;
+        }
+
+        & > *:last-child {
+            margin-right: 0;
+        }
     }
 
     &__link {
         display: flex;
-        position: relative;
-        flex-shrink: 0;
         align-items: center;
         margin: 0 18px;
 
@@ -106,14 +96,17 @@
             height: 20px;
         }
 
-        > *:first-child { margin-left: 0; }
-        > *:last-child { margin-right: 0; }
+        & > *:first-child {
+            margin-left: 0;
+        }
+
+        & > *:last-child {
+            margin-right: 0;
+        }
     }
 
     &__logo {
         display: flex;
-        position: relative;
-        flex-shrink: 0;
         align-items: center;
         margin: 0 18px;
 
@@ -136,52 +129,54 @@
             height: 24px;
         }
 
-        > *:first-child { margin-left: 0; }
-        > *:last-child { margin-right: 0; }
+        & > *:first-child {
+            margin-left: 0;
+        }
+
+        & > *:last-child {
+            margin-right: 0;
+        }
     }
 
-    &__navCol {
+    &__navCol {  
         display: flex;
         position: relative;
         align-items: center;
-        margin: 9px 20px;
-
-        > *:first-child { margin-left: 0; }
-        > *:last-child { margin-right: 0; }
+        & > *:first-child { margin-left: 0; }
+        & > *:last-child { margin-right: 0; }
     }
 
     &__navRow {
-        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 24px;
         z-index: 1;
-        margin-top: -9px;
         background: #f0f0f0;
-        padding-bottom: 9px;
-
-        &__content {
-            margin: 0 auto;
-            display: flex;
-            position: relative;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
+        padding: 4px 20px;
+        width: 100%;
+        row-gap: 8px;
+        
+        & > * { justify-content: center; }
+        & > *:first-child { justify-content: flex-start; }
+        & > *:last-child { justify-content: flex-end; }
         
     }
 
-    > *:first-child {
-        margin-top: 0;
-        padding: 9px 0;
-    }
+    & > *:first-child { padding-top: 18px; }
+    & > *:last-child { padding-bottom: 18px; }
 
-    &__extension {
+    &--true {
         z-index: 0;
-        transition: transform 200ms ease-out;
-
-        &--false {
-            position: absolute;
-            left: 0;
-            right: 0;
-            transform: translateY(-100%);
-        }
+        animation-name: example;
+        animation-duration: 200ms;
     }
+
 }
+
+@keyframes example {
+    0% {transform: translateY(calc(-100% + 18px));}
+    30% {transform: translateY(calc(-100% + 18px));}
+    100% {transform: translateY(0);}
+  }

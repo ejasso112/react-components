@@ -118,11 +118,11 @@ Low-level interface for all nav components.
 ```
 
 #### To Dos
- * Add Functionality to the `NavButton` `type: advSearch` module.
- * Add Functionality to the `NavButton` `type: profile` module. (drop Down menu)
- * Add an On keyPress Event to the `NavSearchField` module to redirect.
+ * Update the Readme Navigation Section
+ * Add a dropdown filters module
+ * Add an input filter module
+ * Add a toggleable slidder module.
  * Make the component responsive.
- * Add a basic preset style to the `Navigation` Component.
 
 ## Contributions
 [Eduardo Jasso (ejasso112)](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
@@ -149,3 +149,12 @@ Low-level interface for all nav components.
 * **Navigation 0.0.5 - State Management Update**
   * Changed from prop drilling to using React Context API.
   * Reorganized all Component modules
+* **Navigation 0.1.0 - Overhaul**
+  * Folder Hierarchy change.
+  * Added `NavText`, `NavImg`, and `NavSvg` modules instead of passing them in as props into `NavLogo`, `NavLink`, `NavLinkButton`, or `NavButton`.
+  * `Button` with `type: dropdown` full functionality.
+  * `Button` with `type: extension` full functionality.
+  * `NavSearchField` functionality on press return key.
+  * Added an OnClickOutside event to dropdown menus.
+  * Added default styling to all the components.
+  * `NavigationContext` no holds the states of every extension and dropdown toggle position by the use of their names.
